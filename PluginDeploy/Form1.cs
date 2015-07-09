@@ -22,7 +22,7 @@ namespace PluginDeploy
             get { return rdbRelease.Checked ? @"bin\Release" : @"bin\Debug"; }
         }
 
-        private SettingsManager Settings;
+        private readonly SettingsManager Settings;
 
         public Form1()
         {
@@ -55,24 +55,40 @@ namespace PluginDeploy
         {
             btnGo.Enabled = false;
 
-            DirectoryInfo output = new DirectoryInfo(outputDir);
-            output.DeleteAll();
-            output.Create();
-            output.CreateSubdirectory("bin");
-
-            DirectoryInfo dir = new DirectoryInfo(txtInput.Text);
-
-            foreach(var d in dir.GetDirectories())
+            try
             {
-                if(d.Name.ToLower().StartsWith(prefix) && !d.Name.ToLower().Contains("rdi.service.plugins.example"))
+                DirectoryInfo dir = new DirectoryInfo(txtInput.Text);
+
+                if (!dir.Exists)
                 {
-                    processDirectory(d);
+                    MessageBox.Show("The input directory does not exist");
+                    txtInput.Focus();
+                    return;
                 }
+
+                DirectoryInfo output = new DirectoryInfo(outputDir);
+                output.DeleteAll();
+                output.Create();
+                output.CreateSubdirectory("bin");
+
+                foreach (var d in dir.GetDirectories())
+                {
+                    if (d.Name.ToLower().StartsWith(prefix) && !d.Name.ToLower().Contains("rdi.service.plugins.example"))
+                    {
+                        processDirectory(d);
+                    }
+                }
+
+                SaveSettings();
             }
-
-            btnGo.Enabled = true;
-
-            SaveSettings();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                btnGo.Enabled = true;
+            }
         }
 
         private void processDirectory(DirectoryInfo dir)
