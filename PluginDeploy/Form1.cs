@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Linq;
+using bche.SettingsManager;
 
 namespace PluginDeploy
 {
@@ -21,65 +22,31 @@ namespace PluginDeploy
             get { return rdbRelease.Checked ? @"bin\Release" : @"bin\Debug"; }
         }
 
+        private SettingsManager Settings;
+
         public Form1()
         {
+            Settings= new SettingsManager();
+
             InitializeComponent();
+
             LoadSettings();
         }
 
         #region Save/Load Settings
 
-        private const string settingsFileName = "settings.xml";
-
         private void LoadSettings()
         {
-            try
-            {
-                IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
-
-                if (!isoStore.FileExists(settingsFileName))
-                    return;
-
-                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream(settingsFileName, FileMode.Open, FileAccess.Read, isoStore))
-                using (StreamReader sr = new StreamReader(isoStream))
-                {
-                    string settings = sr.ReadToEnd();
-
-                    XElement element = XElement.Parse(settings);
-                    txtInput.Text = (from field in element.Elements("appSettings").Elements("directory")
-                                     select field.Value).FirstOrDefault() ?? "";
-                    txtOutput.Text = (from field in element.Elements("appSettings").Elements("output")
-                                     select field.Value).FirstOrDefault() ?? "";
-                }
-            }
-            catch
-            {
-            }
+            Settings.LoadSettings();
+            txtInput.Text = Settings["directory"];
+            txtOutput.Text = Settings["output"];
         }
 
         private void SaveSettings()
         {
-            try
-            {
-                IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
-
-                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream(settingsFileName, FileMode.OpenOrCreate, FileAccess.Write, isoStore))
-                using (StreamWriter sw = new StreamWriter(isoStream))
-                {
-                    XElement element =
-                        new XElement("config",
-                            new XElement("appSettings",
-                                new XElement("directory", txtInput.Text),
-                                new XElement("output", txtOutput.Text)
-                                )
-                            );
-
-                    sw.Write(element.ToString());
-                }
-            }
-            catch
-            {
-            }
+            Settings["directory"] = txtInput.Text;
+            Settings["output"] = txtOutput.Text;
+            Settings.SaveSettings();
         }
 
         #endregion
