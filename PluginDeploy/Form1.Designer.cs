@@ -54,7 +54,7 @@
             this.btnGo.Location = new System.Drawing.Point(197, 102);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(75, 23);
-            this.btnGo.TabIndex = 1;
+            this.btnGo.TabIndex = 4;
             this.btnGo.Text = "Go";
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
@@ -83,7 +83,7 @@
             this.rdbDebug.Location = new System.Drawing.Point(15, 103);
             this.rdbDebug.Name = "rdbDebug";
             this.rdbDebug.Size = new System.Drawing.Size(57, 17);
-            this.rdbDebug.TabIndex = 4;
+            this.rdbDebug.TabIndex = 2;
             this.rdbDebug.Text = "Debug";
             this.rdbDebug.UseVisualStyleBackColor = true;
             // 
@@ -94,7 +94,7 @@
             this.rdbRelease.Location = new System.Drawing.Point(78, 103);
             this.rdbRelease.Name = "rdbRelease";
             this.rdbRelease.Size = new System.Drawing.Size(64, 17);
-            this.rdbRelease.TabIndex = 5;
+            this.rdbRelease.TabIndex = 3;
             this.rdbRelease.TabStop = true;
             this.rdbRelease.Text = "Release";
             this.rdbRelease.UseVisualStyleBackColor = true;
@@ -115,11 +115,12 @@
             this.txtOutput.Location = new System.Drawing.Point(15, 64);
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Size = new System.Drawing.Size(257, 20);
-            this.txtOutput.TabIndex = 7;
+            this.txtOutput.TabIndex = 1;
             this.txtOutput.Text = "c:\\temp\\plugin";
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnGo;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 137);
