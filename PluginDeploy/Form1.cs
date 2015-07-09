@@ -9,7 +9,11 @@ namespace PluginDeploy
 {
     public partial class Form1 : Form
     {
-        private const string outputDir = @"c:\temp\plugins";
+        private string outputDir
+        {
+            get { return txtOutput.Text; }
+        }
+
         private const string prefix = @"rdi.service.plugins";
 
         private string configuration
@@ -42,8 +46,10 @@ namespace PluginDeploy
                     string settings = sr.ReadToEnd();
 
                     XElement element = XElement.Parse(settings);
-                    txtInput.Text =  (from field in element.Elements("appSettings").Elements("directory")
-                                      select field.Value).FirstOrDefault() ?? "";
+                    txtInput.Text = (from field in element.Elements("appSettings").Elements("directory")
+                                     select field.Value).FirstOrDefault() ?? "";
+                    txtOutput.Text = (from field in element.Elements("appSettings").Elements("output")
+                                     select field.Value).FirstOrDefault() ?? "";
                 }
             }
             catch
@@ -63,7 +69,8 @@ namespace PluginDeploy
                     XElement element =
                         new XElement("config",
                             new XElement("appSettings",
-                                new XElement("directory", txtInput.Text)
+                                new XElement("directory", txtInput.Text),
+                                new XElement("output", txtOutput.Text)
                                 )
                             );
 

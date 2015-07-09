@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.rdbDebug = new System.Windows.Forms.RadioButton();
             this.rdbRelease = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtOutput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtInput
@@ -49,11 +51,11 @@
             // btnGo
             // 
             this.btnGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGo.Location = new System.Drawing.Point(197, 57);
+            this.btnGo.Location = new System.Drawing.Point(197, 102);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(75, 23);
             this.btnGo.TabIndex = 1;
-            this.btnGo.Text = "GO";
+            this.btnGo.Text = "Go";
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
@@ -69,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 48);
+            this.label2.Location = new System.Drawing.Point(12, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 3;
@@ -78,7 +80,7 @@
             // rdbDebug
             // 
             this.rdbDebug.AutoSize = true;
-            this.rdbDebug.Location = new System.Drawing.Point(15, 65);
+            this.rdbDebug.Location = new System.Drawing.Point(15, 103);
             this.rdbDebug.Name = "rdbDebug";
             this.rdbDebug.Size = new System.Drawing.Size(57, 17);
             this.rdbDebug.TabIndex = 4;
@@ -89,7 +91,7 @@
             // 
             this.rdbRelease.AutoSize = true;
             this.rdbRelease.Checked = true;
-            this.rdbRelease.Location = new System.Drawing.Point(79, 65);
+            this.rdbRelease.Location = new System.Drawing.Point(78, 103);
             this.rdbRelease.Name = "rdbRelease";
             this.rdbRelease.Size = new System.Drawing.Size(64, 17);
             this.rdbRelease.TabIndex = 5;
@@ -97,18 +99,39 @@
             this.rdbRelease.Text = "Release";
             this.rdbRelease.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Output:";
+            // 
+            // txtOutput
+            // 
+            this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtOutput.Location = new System.Drawing.Point(15, 64);
+            this.txtOutput.Name = "txtOutput";
+            this.txtOutput.Size = new System.Drawing.Size(257, 20);
+            this.txtOutput.TabIndex = 7;
+            this.txtOutput.Text = "c:\\temp\\plugin";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 92);
+            this.ClientSize = new System.Drawing.Size(284, 137);
+            this.Controls.Add(this.txtOutput);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.rdbRelease);
             this.Controls.Add(this.rdbDebug);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.txtInput);
-            this.MinimumSize = new System.Drawing.Size(300, 130);
+            this.MinimumSize = new System.Drawing.Size(300, 175);
             this.Name = "Form1";
             this.Text = "Plugin Deployer";
             this.ResumeLayout(false);
@@ -124,6 +147,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rdbDebug;
         private System.Windows.Forms.RadioButton rdbRelease;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtOutput;
     }
 }
 
