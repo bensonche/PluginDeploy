@@ -108,7 +108,10 @@ namespace PluginDeploy
             {
                 foreach (var f in bin.GetFiles())
                 {
-                    File.Copy(f.FullName, Path.Combine(outputDir, f.Name), true);
+                    if (f.Name.ToLower().StartsWith(prefix) && f.Name.ToLower() != "rdi.service.plugins.shared.dll")
+                        File.Copy(f.FullName, Path.Combine(Path.Combine(outputDir, "bin"), f.Name), true);
+                    else
+                        File.Copy(f.FullName, Path.Combine(outputDir, f.Name), true);
                 }
             }
         }
