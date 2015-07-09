@@ -32,8 +32,8 @@
             this.btnGo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdbDebug = new System.Windows.Forms.RadioButton();
+            this.rdbRelease = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // txtInput
@@ -75,36 +75,35 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Configuration:";
             // 
-            // radioButton1
+            // rdbDebug
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(15, 65);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(57, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Debug";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbDebug.AutoSize = true;
+            this.rdbDebug.Location = new System.Drawing.Point(15, 65);
+            this.rdbDebug.Name = "rdbDebug";
+            this.rdbDebug.Size = new System.Drawing.Size(57, 17);
+            this.rdbDebug.TabIndex = 4;
+            this.rdbDebug.Text = "Debug";
+            this.rdbDebug.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdbRelease
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(79, 65);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(64, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Release";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbRelease.AutoSize = true;
+            this.rdbRelease.Checked = true;
+            this.rdbRelease.Location = new System.Drawing.Point(79, 65);
+            this.rdbRelease.Name = "rdbRelease";
+            this.rdbRelease.Size = new System.Drawing.Size(64, 17);
+            this.rdbRelease.TabIndex = 5;
+            this.rdbRelease.TabStop = true;
+            this.rdbRelease.Text = "Release";
+            this.rdbRelease.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 92);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rdbRelease);
+            this.Controls.Add(this.rdbDebug);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGo);
@@ -123,8 +122,8 @@
         private System.Windows.Forms.Button btnGo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdbDebug;
+        private System.Windows.Forms.RadioButton rdbRelease;
     }
 }
 
