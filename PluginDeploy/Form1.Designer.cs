@@ -111,7 +111,7 @@
             this.Controls.Add(this.txtInput);
             this.MinimumSize = new System.Drawing.Size(300, 130);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Plugin Deployer";
             this.ResumeLayout(false);
             this.PerformLayout();
 
